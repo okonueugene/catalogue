@@ -10,13 +10,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "search_history")
 public class Search_History {
-//     CREATE TABLE search_history (
-//     id BIGINT PRIMARY KEY AUTO_INCREMENT,
-//     user_id BIGINT,
-//     keyword VARCHAR(255) NOT NULL,
-//     searched_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-//     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
-// );
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
