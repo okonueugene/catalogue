@@ -10,147 +10,124 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "ads")
 public class Ads {
-//     CREATE TABLE ads (
-//     id BIGINT PRIMARY KEY AUTO_INCREMENT,
-//     user_id BIGINT NOT NULL,
-//     category_id BIGINT NOT NULL,
-//     title VARCHAR(255) NOT NULL,
-//     description TEXT NOT NULL,
-//     price DECIMAL(10,2) NOT NULL,
-//     location VARCHAR(255),
-//     image_url VARCHAR(255),
-//     views INT DEFAULT 0,
-//     status ENUM('active', 'pending', 'expired') DEFAULT 'pending',
-//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-//     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-//     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-//     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
-// );
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-@ManyToOne(fetch = FetchType.LAZY)
-@JoinColumn(name = "user_id", nullable = false)
-private Users user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private Users user;
 
-@ManyToOne(fetch = FetchType.LAZY)
-@JoinColumn(name = "category_id", nullable = false)
-private Categories category;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Categories category;
 
-@Column(name = "title", nullable = false)
-private String title;
+    @Column(name = "title", nullable = false)
+    private String title;
 
-@Column(name = "description", nullable = false)
-private String description;
+    @Column(name = "description", nullable = false)
+    private String description;
 
-@Column(name = "price", nullable = false)
-private double price;
+    @Column(name = "price", nullable = false)
+    private double price;
 
-@Column(name = "location")
-private String location;
+    // Primary (main) ad location; required for each ad.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_id", nullable = false)
+    private Locations location;
 
-@OneToMany(mappedBy = "ad", cascade = CascadeType.ALL, orphanRemoval = true)
-private java.util.List<Ad_Images> images = new java.util.ArrayList<>();
+    // Optional sublocation for further search refinement.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sub_location_id")
+    private Sub_Location subLocation;
 
-@Column(name = "views")
-private int views = 0;
+    @OneToMany(mappedBy = "ad", cascade = CascadeType.ALL, orphanRemoval = true)
+    private java.util.List<Ad_Images> images = new java.util.ArrayList<>();
 
-@Enumerated(EnumType.STRING)
-@Column(name = "status")
-private AdsStatus status = AdsStatus.PENDING;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private AdsStatus status = AdsStatus.PENDING;
 
-@CreationTimestamp
-private LocalDateTime created_at;
+    @CreationTimestamp
+    private LocalDateTime created_at;
 
-@UpdateTimestamp
-private LocalDateTime updated_at;
+    @UpdateTimestamp
+    private LocalDateTime updated_at;
 
-public enum AdsStatus {
-    PENDING, ACTIVE, EXPIRED
-}
+    public enum AdsStatus {
+        PENDING, ACTIVE, EXPIRED
+    }
 
-public Long getId() {
-    return id;
-}
+    public Long getId() {
+        return id;
+    }
 
-public void setId(Long id) {
-    this.id = id;
-}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-public Users getUser() {
-    return user;
-}
+    public Users getUser() {
+        return user;
+    }
 
-public void setUser(Users user) {
-    this.user = user;
-}
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
-public Categories getCategory() {
-    return category;
-}
+    public Categories getCategory() {
+        return category;
+    }
 
-public void setCategory(Categories category) {
-    this.category = category;
-}
+    public void setCategory(Categories category) {
+        this.category = category;
+    }
 
-public String getTitle() {
-    return title;
-}
+    public String getTitle() {
+        return title;
+    }
 
-public void setTitle(String title) {
-    this.title = title;
-}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-public String getDescription() {
-    return description;
-}
+    public String getDescription() {
+        return description;
+    }
 
-public void setDescription(String description) {
-    this.description = description;
-}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-public double getPrice() {
-    return price;
-}
+    public double getPrice() {
+        return price;
+    }
 
-public void setPrice(double price) {
-    this.price = price;
-}
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
-public String getLocation() {
-    return location;
-}
+    public java.util.List<Ad_Images> getImages() {
+        return images;
+    }
 
-public void setLocation(String location) {
-    this.location = location;
-}
+    public void setImages(java.util.List<Ad_Images> images) {
+        this.images = images;
+    }
 
-public java.util.List<Ad_Images> getImages() {
-    return images;
-}
+    public AdsStatus getStatus() {
+        return status;
+    }
 
-public void setImages(java.util.List<Ad_Images> images) {
-    this.images = images;
-}
+    public void setStatus(AdsStatus status) {
+        this.status = status;
+    }
 
-public int getViews() {
-    return views;
-}
-
-public void setViews(int views) {
-    this.views = views;
-}
-
-public AdsStatus getStatus() {
-    return status;
-}
-
-public void setStatus(AdsStatus status) {   
-    this.status = status;   
-}
-
-
+    public Locations getLocation() { return location; }
+    public void setLocation(Locations location) { this.location = location; }
+    
+    public Sub_Location getSubLocation() { return subLocation; }
+    public void setSubLocation(Sub_Location subLocation) { this.subLocation = subLocation; }
+    
 
 }

@@ -38,6 +38,9 @@ public class Users {
     @Column(name = "phone")
     private String phone;
 
+    @Column(name = "store_address")
+    private String storeAddress;
+
     @Column(name = "password_hash")
     private String passwordHash;
 
@@ -88,6 +91,14 @@ public class Users {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+    
+    public String getStoreAddress() {
+        return storeAddress;
+    }
+
+    public void setStoreAddress(String storeAddress) {
+        this.storeAddress = storeAddress;
     }
 
     public String getPasswordHash() {

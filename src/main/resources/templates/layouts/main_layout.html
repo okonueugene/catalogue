@@ -1,638 +1,605 @@
 <!DOCTYPE html>
-    <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zawadi">
-    <meta name="keywords" content="Zawadi">
-    <meta name="author" content="Zawadi">
-    <link rel="icon" href="../assets/images/favicon/favicon.ico" type="image/x-icon">
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Zawadi" />
+    <meta name="keywords" content="Zawadi" />
+    <meta name="author" content="Zawadi" />
+    <link
+      rel="icon"
+      href="../assets/images/favicon/favicon.ico"
+      type="image/x-icon"
+    />
     <title>Zawadi</title>
 
     <!-- Google font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    />
 
     <!-- bootstrap css -->
-    <link id="rtl-link" rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+    <link
+      id="rtl-link"
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/css/vendors/bootstrap.css"
+    />
 
     <!-- wow css -->
-    <link rel="stylesheet" href="../assets/css/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/animate.min.css" />
 
     <!-- Iconly css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/bulk-style.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/css/bulk-style.css"
+    />
 
     <!-- Template css -->
-    <link id="color-link" rel="stylesheet" type="text/css" href="../assets/css/style.css">
-</head>
+    <link
+      id="color-link"
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/css/style.css"
+    />
+  </head>
 
-<body class="theme-color-1">
-
+  <body class="theme-color-1">
     <!-- Loader Start -->
     <div class="fullpage-loader">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
     <!-- Loader End -->
 
     <!-- Header Start -->
     <header class="pb-md-4 pb-0">
-        <div class="header-top bg-dark">
-            <div class="container-fluid-lg">
-                <div class="row">
-                    <div class="col-xxl-3 d-xxl-block d-none">
-                        <div class="top-left-header">
-                            <i class="iconly-Location icli text-white"></i>
-                            <span class="text-white">1418 Riverwood Drive, CA 96052, US</span>
-                        </div>
-                    </div>
-
-                    <div class="col-xxl-6 col-lg-9 d-lg-block d-none">
-                        <div class="header-offer">
-                            <div class="notification-slider">
-                                <div>
-                                    <div class="timer-notification">
-                                        <h6><strong class="me-1">Welcome to Zawadi!</strong>Wrap new offers/gift
-                                            every single day on Weekends.<strong class="ms-1">New Coupon Code:
-                                                Fast024
-                                            </strong>
-
-                                        </h6>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="timer-notification">
-                                        <h6>Something you love is now on sale!
-                                            <a href="shop-left-sidebar.html" class="text-white">Buy Now
-                                                !</a>
-                                        </h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-        
-                </div>
-            </div>
-        </div>
-
-        <div class="top-nav top-header sticky-header">
-            <div class="container-fluid-lg">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="navbar-top">
-                            <button class="navbar-toggler d-xl-none d-inline navbar-menu-button" type="button"
-                                data-bs-toggle="offcanvas" data-bs-target="#primaryMenu">
-                                <span class="navbar-toggler-icon">
-                                    <i class="fa-solid fa-bars"></i>
-                                </span>
-                            </button>
-                            <a href="index.html" class="web-logo nav-logo">
-                                <img src="../assets/images/logo/zawadi.jpeg" class="img-fluid blur-up lazyload" alt="" style="width: 100%; height: 70px;">
-                            </a>
-
-                            <div class="middle-box">
-
-                                <div class="search-box">
-                                    <div class="input-group">
-                                        <input type="search" class="form-control"
-                                            placeholder="I'm searching for...">
-                                        <button class="btn search-button-2" type="button" id="button-addon2">
-                                            <i data-feather="search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="rightside-box">
-                                <div class="search-full">
-                                    <div class="input-group">
-                                        <span class="input-group-text">
-                                            <i data-feather="search" class="font-light"></i>
-                                        </span>
-                                        <input type="text" class="form-control search-type"
-                                            placeholder="Search here..">
-                                        <span class="input-group-text close-search">
-                                            <i data-feather="x" class="font-light"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                <ul class="right-side-menu">
-                                    <li class="right-side">
-                                        <div class="delivery-login-box">
-                                            <div class="delivery-icon">
-                                                <div class="search-box">
-                                                    <i data-feather="search"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-   
-                                    <li class="right-side onhover-dropdown">
-                                        <div class="delivery-login-box">
-                                            <div class="delivery-icon">
-                                                <i data-feather="user"></i>
-                                            </div>
-                                            <div class="delivery-detail">
-                                                <h6>Hello,</h6>
-                                                <h5>My Account</h5>
-                                            </div>
-                                        </div>
-
-                                        <div class="onhover-div onhover-div-login">
-                                            <ul class="user-box-name">
-                                                <li class="product-box-contain">
-                                                    <i></i>
-                                                    <a href="login.html">Log In</a>
-                                                </li>
-
-                                                <li class="product-box-contain">
-                                                    <a href="sign-up.html">Register</a>
-                                                </li>
-
-                                                <li class="product-box-contain">
-                                                    <a href="forgot.html">Forgot Password</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+      <div class="header-top bg-dark">
         <div class="container-fluid-lg">
-            <div class="row">
-                <div class="col-12">
-                    <div class="header-nav">
-                        <div class="header-nav-left">
-                            <button class="dropdown-category dropdown-category-2">
-                                <i data-feather="align-left"></i>
-                                <span>All Categories</span>
-                            </button>
-
-                            <div class="category-dropdown">
-                                <div class="category-title">
-                                    <h5>Categories</h5>
-                                    <button type="button" class="btn p-0 close-button text-content">
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </button>
-                                </div>
-
-                                <ul class="category-list">
-                                    <li class="onhover-category-list" th:each="category : ${categories}">
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/vegetable.svg" alt="">
-                                            <h6 th:text="${category.name}"></h6>
-                                            <i class="fa-solid fa-angle-right"></i>
-                                        </a>
-
-                                        <div class="onhover-category-box w-100">
-                                            <div class="list-1">
-                                                <div class="category-title-box">
-                                                    <h5>
-                                                </div>
-                                                <ul>
-                                                   
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="header-nav-middle">
-                            <div class="main-nav navbar navbar-expand-xl navbar-light navbar-sticky">
-                                <div class="offcanvas offcanvas-collapse order-xl-2" id="primaryMenu">
-                                    <div class="offcanvas-header navbar-shadow">
-                                        <h5>Menu</h5>
-                                        <button class="btn-close lead" type="button"
-                                            data-bs-dismiss="offcanvas"></button>
-                                    </div>
-                                    <div class="offcanvas-body">
-                                        <ul class="navbar-nav">
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                                    data-bs-toggle="dropdown">Home</a>
-                                            </li>
-
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                                    data-bs-toggle="dropdown">Shop</a>
-                                            </li>
-                                            <li class="nav-item dropdown new-nav-item">
-                                                <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                                    data-bs-toggle="dropdown">Pages <label
-                                                        class="new-dropdown">New</label></a>
-                                                <ul class="dropdown-menu">
-                                                    <li class="sub-dropdown-hover">
-                                                        <a class="dropdown-item" href="javascript:void(0)">Email
-                                                            Template <span class="new-text"><i
-                                                                    class="fa-solid fa-bolt-lightning"></i></span></a>
-                                                        <ul class="sub-menu">
-                                                            <li>
-                                                                <a
-                                                                    href="../email-templete/abandonment-email.html">Abandonment</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="../email-templete/offer-template.html">Offer
-                                                                    Template</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="../email-templete/order-success.html">Order
-                                                                    Success</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="../email-templete/reset-password.html">Reset
-                                                                    Password</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="../email-templete/welcome.html">Welcome
-                                                                    template</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="sub-dropdown-hover">
-                                                        <a class="dropdown-item" href="javascript:void(0)">Invoice
-                                                            Template <span class="new-text"><i
-                                                                    class="fa-solid fa-bolt-lightning"></i></span></a>
-                                                        <ul class="sub-menu">
-                                                            <li>
-                                                                <a href="../invoice/invoice-1.html">Invoice 1</a>
-                                                            </li>
-
-                                                            <li>
-                                                                <a href="../invoice/invoice-2.html">Invoice 2</a>
-                                                            </li>
-
-                                                            <li>
-                                                                <a href="../invoice/invoice-3.html">Invoice 3</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="404.html">404</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="about-us.html">About Us</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="cart.html">Cart</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="contact-us.html">Contact</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="checkout.html">Checkout</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="coming-soon.html">Coming
-                                                            Soon</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="compare.html">Compare</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="faq.html">Faq</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="order-success.html">Order
-                                                            Success</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="order-tracking.html">Order
-                                                            Tracking</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="otp.html">OTP</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="search.html">Search</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="user-dashboard.html">User
-                                                            Dashboard</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="wishlist.html">Wishlist</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                                    data-bs-toggle="dropdown">Seller</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a class="dropdown-item" href="seller-become.html">Become a
-                                                            Seller</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="seller-dashboard.html">Seller
-                                                            Dashboard</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="seller-detail.html">Seller
-                                                            Detail</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="seller-detail-2.html">Seller
-                                                            Detail 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="seller-grid.html">Seller
-                                                            Grid</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="seller-grid-2.html">Seller
-                                                            Grid
-                                                            2</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="row">
+            <div class="col-xxl-3 d-xxl-block d-none">
+              <div class="top-left-header">
+                <i class="iconly-Location icli text-white"></i>
+                <span class="text-white"
+                  >1418 Riverwood Drive, CA 96052, US</span
+                >
+              </div>
             </div>
+
+            <div class="col-xxl-6 col-lg-9 d-lg-block d-none">
+              <div class="header-offer">
+                <div class="notification-slider">
+                  <div>
+                    <div class="timer-notification">
+                      <h6>
+                        <strong class="me-1">Welcome to Zawadi!</strong>Wrap new
+                        offers/gift every single day on Weekends.<strong
+                          class="ms-1"
+                          >New Coupon Code: Fast024
+                        </strong>
+                      </h6>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="timer-notification">
+                      <h6>
+                        Something you love is now on sale!
+                        <a href="shop-left-sidebar.html" class="text-white"
+                          >Buy Now !</a
+                        >
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="top-nav top-header sticky-header">
+        <div class="container-fluid-lg">
+          <div class="row">
+            <div class="col-12">
+              <div class="navbar-top">
+                <button
+                  class="navbar-toggler d-xl-none d-inline navbar-menu-button"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#primaryMenu"
+                >
+                  <span class="navbar-toggler-icon">
+                    <i class="fa-solid fa-bars"></i>
+                  </span>
+                </button>
+                <a href="index.html" class="web-logo nav-logo">
+                  <img
+                    src="../assets/images/logo/zawadi.jpeg"
+                    class="img-fluid blur-up lazyload"
+                    alt=""
+                    style="width: 100%; height: 70px"
+                  />
+                </a>
+
+                <div class="middle-box">
+                  <div class="location-box">
+                    <button
+                      class="btn location-button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#locationModal"
+                    >
+                      <span class="location-arrow">
+                        <i data-feather="map-pin"></i>
+                      </span>
+                      <span class="locat-name">Your Location</span>
+                      <i class="fa-solid fa-angle-down"></i>
+                    </button>
+                  </div>
+                  <div class="search-box">
+                    <div class="input-group">
+                      <input
+                        type="search"
+                        id="adsSearchInput"
+                        class="form-control"
+                        placeholder="I'm searching for..."
+                      />
+                    </div>
+                    <div id="adsSuggestions" class="suggestions-dropdown text-center"></div>
+                  </div>
+                </div>
+
+                <div class="rightside-box">
+                  <div class="search-full">
+                    <div class="input-group">
+                      <span class="input-group-text">
+                        <i data-feather="search" class="font-light"></i>
+                      </span>
+                      <input
+                        type="text"
+                        class="form-control search-type"
+                        placeholder="Search here.."
+                      />
+                      <span class="input-group-text close-search">
+                        <i data-feather="x" class="font-light"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <ul class="right-side-menu">
+                    <li class="right-side">
+                      <div class="delivery-login-box">
+                        <div class="delivery-icon">
+                          <div class="search-box">
+                            <i data-feather="search"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="right-side onhover-dropdown">
+                      <div class="onhover-show-div">
+                        <ul class="list-inline mb-0">
+                          <li class="list-inline-item">
+                            <a href="login.html" class="login text-decoration-none">Login</a>
+                          </li>
+                          <li class="list-inline-item">
+                            <span class="text-muted">|</span>
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="register.html" class="register text-decoration-none">Register</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="right-side">
+                      <div class="text-center" style="margin-top: 10px; background-color: coral;">
+                        <button type="button" class="btn btn-warning btn-sm text-white">Sell on Zawadi</button>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid-lg">
+        <div class="row">
+          <div class="col-12">
+            <div class="header-nav">
+              <div class="header-nav-left">
+                <button class="dropdown-category dropdown-category-2">
+                  <i data-feather="align-left"></i>
+                  <span>All Categories</span>
+                </button>
+
+                <div class="category-dropdown">
+                  <div class="category-title">
+                    <h5>Categories</h5>
+                    <button
+                      type="button"
+                      class="btn p-0 close-button text-content"
+                    >
+                      <i class="fa-solid fa-xmark"></i>
+                    </button>
+                  </div>
+
+                  <ul class="category-list">
+                    <li
+                      class="onhover-category-list"
+                      th:each="category : ${categories}"
+                    >
+                      <a href="javascript:void(0)" class="category-name">
+                        <img src="../assets/svg/1/vegetable.svg" alt="" />
+                        <h6 th:text="${category.name}"></h6>
+                        <i class="fa-solid fa-angle-right"></i>
+                      </a>
+
+                      <div class="onhover-category-box w-100">
+                        <div class="list-1">
+                          <div class="category-title-box"></div>
+                          <ul>
+                            <li th:each="sub : ${category.subCategories}">
+                              <a
+                                href="javascript:void(0)"
+                                th:text="${sub.name}"
+                              ></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
     <!-- Header End -->
 
     <!-- mobile fix menu start -->
     <div class="mobile-menu d-md-none d-block mobile-cart">
-        <ul>
-            <li class="active">
-                <a href="index.html">
-                    <i class="iconly-Home icli"></i>
-                    <span>Home</span>
-                </a>
-            </li>
+      <ul>
+        <li class="active">
+          <a href="index.html">
+            <i class="iconly-Home icli"></i>
+            <span>Home</span>
+          </a>
+        </li>
 
-            <li class="mobile-category">
-                <a href="javascript:void(0)">
-                    <i class="iconly-Category icli js-link"></i>
-                    <span>Category</span>
-                </a>
-            </li>
+        <li class="mobile-category">
+          <a href="javascript:void(0)">
+            <i class="iconly-Category icli js-link"></i>
+            <span>Category</span>
+          </a>
+        </li>
 
-            <li>
-                <a href="search.html" class="search-box">
-                    <i class="iconly-Search icli"></i>
-                    <span>Search</span>
-                </a>
-            </li>
+        <li>
+          <a href="search.html" class="search-box">
+            <i class="iconly-Search icli"></i>
+            <span>Search</span>
+          </a>
+        </li>
 
-            <li>
-                <a href="wishlist.html" class="notifi-wishlist">
-                    <i class="iconly-Heart icli"></i>
-                    <span>My Wish</span>
-                </a>
-            </li>
+        <li>
+          <a href="wishlist.html" class="notifi-wishlist">
+            <i class="iconly-Heart icli"></i>
+            <span>My Wish</span>
+          </a>
+        </li>
 
-            <li>
-                <a href="cart.html">
-                    <i class="iconly-Bag-2 icli fly-cate"></i>
-                    <span>Cart</span>
-                </a>
-            </li>
-        </ul>
+        <li>
+          <a href="cart.html">
+            <i class="iconly-Bag-2 icli fly-cate"></i>
+            <span>Cart</span>
+          </a>
+        </li>
+      </ul>
     </div>
     <!-- mobile fix menu end -->
 
     <!-- Product Section Start -->
-<section layout:fragment="content"></section>
+    <section layout:fragment="content"></section>
     <!-- Product Section End -->
 
     <!-- Footer Section Start -->
     <footer class="section-t-space">
-        <div class="container-fluid-lg">
-            <div class="main-footer section-b-space section-t-space">
-                <div class="row g-md-4 g-3">
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
-                        <div class="footer-logo">
-                            <div class="theme-logo">
-                                <a href="index.html">
-                                    <img src="../assets/images/logo/zawadi.jpeg" class="blur-up lazyload" alt="" style="width: 100%; height: 70px;">
-                                </a>
-                            </div>
-
-                            <div class="footer-logo-contain">
-                                <p>
-                                    In publishing and graphic design, Lorem ipsum is a
-                                    placeholder text commonly used to demonstrate the visual
-                                    form.
-                                </p>
-
-                                <ul class="address">
-                                    <li>
-                                        <i data-feather="home"></i>
-                                        <a href="javascript:void(0)">1418 Riverwood Drive, CA 96052, US</a>
-                                    </li>
-                                    <li>
-                                        <i data-feather="mail"></i>
-                                        <a href="javascript:void(0)">support@Zawadi.com</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                        <div class="footer-title">
-                            <h4>Categories</h4>
-                        </div>
-
-                        <div class="footer-contain">
-                            <ul>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="text-content">Vegetables & Fruit</a>
-                                </li>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="text-content">Beverages</a>
-                                </li>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="text-content">Meats & Seafood</a>
-                                </li>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="text-content">Frozen Foods</a>
-                                </li>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="text-content">Biscuits & Snacks</a>
-                                </li>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="text-content">Grocery & Staples</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-xl col-lg-2 col-sm-3">
-                        <div class="footer-title">
-                            <h4>Useful Links</h4>
-                        </div>
-
-                        <div class="footer-contain">
-                            <ul>
-                                <li>
-                                    <a href="index.html" class="text-content">Home</a>
-                                </li>
-                                <li>
-                                    <a href="shop-left-sidebar.html" class="text-content">Shop</a>
-                                </li>
-                                <li>
-                                    <a href="about-us.html" class="text-content">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="blog-list.html" class="text-content">Blog</a>
-                                </li>
-                                <li>
-                                    <a href="contact-us.html" class="text-content">Contact Us</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-sm-3">
-                        <div class="footer-title">
-                            <h4>Help Center</h4>
-                        </div>
-
-                        <div class="footer-contain">
-                            <ul>
-                                <li>
-                                    <a href="order-success.html" class="text-content">Your Order</a>
-                                </li>
-                                <li>
-                                    <a href="user-dashboard.html" class="text-content">Your Account</a>
-                                </li>
-                                <li>
-                                    <a href="order-tracking.html" class="text-content">Track Order</a>
-                                </li>
-                                <li>
-                                    <a href="wishlist.html" class="text-content">Your Wishlist</a>
-                                </li>
-                                <li>
-                                    <a href="search.html" class="text-content">Search</a>
-                                </li>
-                                <li>
-                                    <a href="faq.html" class="text-content">FAQ</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
-                        <div class="footer-title">
-                            <h4>Contact Us</h4>
-                        </div>
-
-                        <div class="footer-contact">
-                            <ul>
-                                <li>
-                                    <div class="footer-number">
-                                        <i data-feather="phone"></i>
-                                        <div class="contact-number">
-                                            <h6 class="text-content">Hotline 24/7 :</h6>
-                                            <h5>+91 888 104 2340</h5>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="footer-number">
-                                        <i data-feather="mail"></i>
-                                        <div class="contact-number">
-                                            <h6 class="text-content">Email Address :</h6>
-                                            <h5>Zawadi@hotmail.com</h5>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="social-app mb-0">
-                                    <h5 class="mb-2 text-content">Download App :</h5>
-                                    <ul>
-                                        <li class="mb-0">
-                                            <a href="https://play.google.com/store/apps" target="_blank">
-                                                <img src="../assets/images/playstore.svg" class="blur-up lazyload"
-                                                    alt="">
-                                            </a>
-                                        </li>
-                                        <li class="mb-0">
-                                            <a href="https://www.apple.com/in/app-store/" target="_blank">
-                                                <img src="../assets/images/appstore.svg" class="blur-up lazyload"
-                                                    alt="">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+      <div class="container-fluid-lg">
+        <div class="main-footer section-b-space section-t-space">
+          <div class="row g-md-4 g-3">
+            <div class="col-xl-3 col-lg-4 col-sm-6">
+              <div class="footer-logo">
+                <div class="theme-logo">
+                  <a href="index.html">
+                    <img
+                      src="../assets/images/logo/zawadi.jpeg"
+                      class="blur-up lazyload"
+                      alt=""
+                      style="width: 100%; height: 70px"
+                    />
+                  </a>
                 </div>
+
+                <div class="footer-logo-contain">
+                  <p>
+                    In publishing and graphic design, Lorem ipsum is a
+                    placeholder text commonly used to demonstrate the visual
+                    form.
+                  </p>
+
+                  <ul class="address">
+                    <li>
+                      <i data-feather="home"></i>
+                      <a href="javascript:void(0)"
+                        >1418 Riverwood Drive, CA 96052, US</a
+                      >
+                    </li>
+                    <li>
+                      <i data-feather="mail"></i>
+                      <a href="javascript:void(0)">support@Zawadi.com</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <div class="sub-footer section-small-space">
-                <div class="reserve">
-                    <h6 class="text-content">
-                    ©<span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span> Zawadi All rights reserved
-                    </h6>
-                </div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+              <div class="footer-title">
+                <h4>Categories</h4>
+              </div>
 
-                <div class="payment">
-                    <img src="../assets/images/payment/1.png" class="blur-up lazyload" alt="">
-                </div>
+              <div class="footer-contain">
+                <ul>
+                  <li>
+                    <a href="shop-left-sidebar.html" class="text-content"
+                      >Vegetables & Fruit</a
+                    >
+                  </li>
+                  <li>
+                    <a href="shop-left-sidebar.html" class="text-content"
+                      >Beverages</a
+                    >
+                  </li>
+                  <li>
+                    <a href="shop-left-sidebar.html" class="text-content"
+                      >Meats & Seafood</a
+                    >
+                  </li>
+                  <li>
+                    <a href="shop-left-sidebar.html" class="text-content"
+                      >Frozen Foods</a
+                    >
+                  </li>
+                  <li>
+                    <a href="shop-left-sidebar.html" class="text-content"
+                      >Biscuits & Snacks</a
+                    >
+                  </li>
+                  <li>
+                    <a href="shop-left-sidebar.html" class="text-content"
+                      >Grocery & Staples</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-                <div class="social-link">
-                    <h6 class="text-content">Stay connected :</h6>
+            <div class="col-xl col-lg-2 col-sm-3">
+              <div class="footer-title">
+                <h4>Useful Links</h4>
+              </div>
+
+              <div class="footer-contain">
+                <ul>
+                  <li>
+                    <a href="index.html" class="text-content">Home</a>
+                  </li>
+                  <li>
+                    <a href="shop-left-sidebar.html" class="text-content"
+                      >Shop</a
+                    >
+                  </li>
+                  <li>
+                    <a href="about-us.html" class="text-content">About Us</a>
+                  </li>
+                  <li>
+                    <a href="blog-list.html" class="text-content">Blog</a>
+                  </li>
+                  <li>
+                    <a href="contact-us.html" class="text-content"
+                      >Contact Us</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-xl-2 col-sm-3">
+              <div class="footer-title">
+                <h4>Help Center</h4>
+              </div>
+
+              <div class="footer-contain">
+                <ul>
+                  <li>
+                    <a href="order-success.html" class="text-content"
+                      >Your Order</a
+                    >
+                  </li>
+                  <li>
+                    <a href="user-dashboard.html" class="text-content"
+                      >Your Account</a
+                    >
+                  </li>
+                  <li>
+                    <a href="order-tracking.html" class="text-content"
+                      >Track Order</a
+                    >
+                  </li>
+                  <li>
+                    <a href="wishlist.html" class="text-content"
+                      >Your Wishlist</a
+                    >
+                  </li>
+                  <li>
+                    <a href="search.html" class="text-content">Search</a>
+                  </li>
+                  <li>
+                    <a href="faq.html" class="text-content">FAQ</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-sm-6">
+              <div class="footer-title">
+                <h4>Contact Us</h4>
+              </div>
+
+              <div class="footer-contact">
+                <ul>
+                  <li>
+                    <div class="footer-number">
+                      <i data-feather="phone"></i>
+                      <div class="contact-number">
+                        <h6 class="text-content">Hotline 24/7 :</h6>
+                        <h5>+91 888 104 2340</h5>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="footer-number">
+                      <i data-feather="mail"></i>
+                      <div class="contact-number">
+                        <h6 class="text-content">Email Address :</h6>
+                        <h5>Zawadi@hotmail.com</h5>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="social-app mb-0">
+                    <h5 class="mb-2 text-content">Download App :</h5>
                     <ul>
-                        <li>
-                            <a href="https://www.facebook.com/" target="_blank">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/" target="_blank">
-                                <i class="fa-brands fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/" target="_blank">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://in.pinterest.com/" target="_blank">
-                                <i class="fa-brands fa-pinterest-p"></i>
-                            </a>
-                        </li>
+                      <li class="mb-0">
+                        <a
+                          href="https://play.google.com/store/apps"
+                          target="_blank"
+                        >
+                          <img
+                            src="../assets/images/playstore.svg"
+                            class="blur-up lazyload"
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                      <li class="mb-0">
+                        <a
+                          href="https://www.apple.com/in/app-store/"
+                          target="_blank"
+                        >
+                          <img
+                            src="../assets/images/appstore.svg"
+                            class="blur-up lazyload"
+                            alt=""
+                          />
+                        </a>
+                      </li>
                     </ul>
-                </div>
+                  </li>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
+
+        <div class="sub-footer section-small-space">
+          <div class="reserve">
+            <h6 class="text-content">
+              ©<span
+                th:text="${#dates.format(#dates.createNow(), 'yyyy')}"
+              ></span>
+              Zawadi All rights reserved
+            </h6>
+          </div>
+        </div>
+      </div>
     </footer>
     <!-- Footer Section End -->
+    <!-- Location Modal Start -->
+    <div
+      class="modal location-modal fade theme-modal"
+      id="locationModal"
+      tabindex="-1"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+        style="max-height: 70vh"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Choose Your Location
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="location-list">
+              <div class="search-input">
+                <input
+                  type="search"
+                  id="locationSearch"
+                  class="form-control"
+                  placeholder="Search Your Area"
+                />
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <div class="disabled-box" id="selectLocationMessage">
+                <h6>Select a Location</h6>
+              </div>
+              <ul class="location-select custom-height" id="locationList">
+                <li th:each="location : ${locations}">
+                  <a
+                    href="javascript:void(0)"
+                    class="text-content"
+                    th:text="${location.name}"
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bg overlay Start -->
     <div class="bg-overlay"></div>
@@ -684,6 +651,232 @@
 
     <!-- theme setting js -->
     <script src="../assets/js/theme-setting.js"></script>
-</body>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("adsSearchInput")
+          .addEventListener("keyup", function () {
+            let keyword = this.value.trim();
+
+            if (!keyword || keyword.length < 2) {
+              clearAdSuggestions();
+              return;
+            }
+
+            fetch(`/search-ads?keyword=${encodeURIComponent(keyword)}`)
+              .then((response) => response.json())
+              .then((data) => displayAdSuggestions(data))
+              .catch((error) => {
+                console.error("Error fetching ads suggestions:", error);
+                clearAdSuggestions();
+              });
+          });
+
+        function displayAdSuggestions(suggestions) {
+          let suggestionsContainer = document.getElementById("adsSuggestions");
+          suggestionsContainer.innerHTML = ""; // Clear previous suggestions
+
+          if (suggestions.length === 0) {
+            suggestionsContainer.innerHTML = "<p>No suggestions found.</p>";
+            return;
+          }
+
+          suggestions.forEach((item) => {
+            let suggestionItem = document.createElement("div");
+            suggestionItem.classList.add("suggestion-item");
+            suggestionItem.innerHTML = `<span>${item.suggestion}</span> <small>(${item.adsCount} ads)</small>`;
+
+            // Optionally, add a click event to redirect or filter ads
+            suggestionItem.addEventListener("click", function () {
+              // For example, navigate to a search results page:
+              window.location.href = `/ads-results?keyword=${encodeURIComponent(
+                item.suggestion
+              )}`;
+            });
+
+            suggestionsContainer.appendChild(suggestionItem);
+          });
+        }
+
+        function clearAdSuggestions() {
+          let suggestionsContainer = document.getElementById("adsSuggestions");
+          suggestionsContainer.innerHTML = "";
+        }
+      });
+    </script>
+    <script>
+      // On page load, render the default list
+      document.addEventListener("DOMContentLoaded", function () {
+        updateLocationListStatic(
+          defaultLocations,
+          defaultSublocationsMap,
+          defaultLocationAdsCount
+        );
+      });
+
+      // Function to update the list with static default locations (without sublocations)
+      function updateLocationListStatic(
+        locations,
+        sublocationsMap,
+        locationAdsCount
+      ) {
+        let locationList = document.getElementById("locationList");
+        locationList.innerHTML = ""; // Clear any previous content
+        if (locations.length === 0) {
+          showErrorMessage("No locations available.");
+          return;
+        }
+        locations.forEach(function (item) {
+          let li = document.createElement("li");
+          li.setAttribute("data-location-id", item.id);
+          li.innerHTML = `<a href="javascript:void(0)">
+            <h6>${item.name} (${locationAdsCount[item.id] || 0} ads)</h6>
+          </a>`;
+          // (Optional) You can later add a click event to expand sublocations if desired.
+          locationList.appendChild(li);
+        });
+        clearErrorMessage();
+      }
+
+      // Listen for keyup on the search input for dynamic searching
+      document
+        .getElementById("locationSearch")
+        .addEventListener("keyup", function () {
+          let keyword = this.value.trim();
+
+          // If the input is empty or less than 2 characters, show an error and reset to default list.
+          if (!keyword || keyword.length < 2) {
+            showErrorMessage("Please enter at least 2 characters to search.");
+            updateLocationListStatic(
+              defaultLocations,
+              defaultSublocationsMap,
+              defaultLocationAdsCount
+            );
+            return;
+          }
+
+          // Otherwise, perform the search via AJAX
+          fetch(`/search-locations?keyword=${encodeURIComponent(keyword)}`)
+            .then((response) => response.json())
+            .then((data) => updateLocationList(data))
+            .catch((error) => {
+              console.error("Error fetching locations:", error);
+              showErrorMessage("An error occurred while searching.");
+            });
+        });
+
+      // Update the list based on search data, grouping locations with sublocations.
+      function updateLocationList(data) {
+        let locationList = document.getElementById("locationList");
+        locationList.innerHTML = ""; // Clear previous results
+
+        // Group data by location
+        let groupedLocations = {};
+        data.forEach(function (item) {
+          if (item.type === "location") {
+            groupedLocations[item.id] = {
+              name: item.name,
+              ads: item.ads || 0,
+              subLocations: []
+            };
+          } else if (item.type === "subLocation") {
+            if (groupedLocations[item.parentId]) {
+              groupedLocations[item.parentId].subLocations.push({
+                id: item.id,
+                name: item.name,
+                ads: item.ads || 0
+              });
+            }
+          }
+        });
+
+        let locationIds = Object.keys(groupedLocations);
+        if (locationIds.length === 0) {
+          showErrorMessage("No matching locations found.");
+          return;
+        }
+
+        // Build list items for each grouped location
+        locationIds.forEach(function (locationId) {
+          let location = groupedLocations[locationId];
+          let li = document.createElement("li");
+          li.setAttribute("data-location-id", locationId);
+
+          li.innerHTML = `
+            <a href="javascript:void(0)">
+              <h6>${location.name} (${location.ads} ads)</h6>
+            </a>
+            <ul class="sub-location-list" id="subLocationList${locationId}" style="display: none;">
+              ${
+                location.subLocations.length > 0
+                  ? location.subLocations
+                      .map(function (sub) {
+                        return `<li data-sub-id="${sub.id}">
+                              <a href="javascript:void(0)">
+                                <h6>${sub.name} (${sub.ads} ads)</h6>
+                              </a>
+                            </li>`;
+                      })
+                      .join("")
+                  : `<li>No Sublocations Found</li>`
+              }
+            </ul>
+          `;
+
+          // Toggle sublocation display on click
+          li.querySelector("a").addEventListener("click", function () {
+            let subList = document.getElementById(
+              "subLocationList" + locationId
+            );
+            if (subList) {
+              subList.style.display =
+                subList.style.display === "none" ? "block" : "none";
+            }
+          });
+
+          locationList.appendChild(li);
+        });
+
+        // If exactly one location is present, automatically expand its sublocations.
+        if (locationIds.length === 1) {
+          let onlyLocationId = locationIds[0];
+          let subList = document.getElementById(
+            "subLocationList" + onlyLocationId
+          );
+          if (subList) {
+            subList.style.display = "block";
+          }
+        }
+
+        clearErrorMessage();
+      }
+
+      // Show an error message inside the modal
+      function showErrorMessage(message) {
+        let errorBox = document.getElementById("selectLocationMessage");
+        errorBox.innerHTML = `<h6>${message}</h6>`;
+        document.getElementById("locationList").innerHTML = "";
+      }
+
+      // Clear the error message (reset to default text)
+      function clearErrorMessage() {
+        let errorBox = document.getElementById("selectLocationMessage");
+        errorBox.innerHTML = `<h6>Select a Location</h6>`;
+      }
+
+      // When the search input is cleared, reset to the default locations.
+      document
+        .getElementById("locationSearch")
+        .addEventListener("input", function () {
+          if (!this.value.trim()) {
+            updateLocationListStatic(
+              defaultLocations,
+              defaultSublocationsMap,
+              defaultLocationAdsCount
+            );
+          }
+        });
+    </script>
+  </body>
 </html>

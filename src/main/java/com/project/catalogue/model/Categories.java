@@ -1,6 +1,8 @@
 package com.project.catalogue.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -11,11 +13,7 @@ import jakarta.persistence.*;
 @Table(name = "categories")
 
 public class Categories {
-    // CREATE TABLE categories (
-    //     id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    //     name VARCHAR(255) UNIQUE NOT NULL,
-    //     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    // );
+   
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +27,10 @@ public class Categories {
     @Column(name = "updated_at")
     @UpdateTimestamp
     private LocalDateTime updated_at;
+
+        // Add this mapping to access subcategories
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Sub_Categories> subCategories = new ArrayList<>();
     
     public Long getId() {
         return id;
@@ -54,5 +56,9 @@ public class Categories {
         this.created_at = created_at;
     }
 
-    
+    // In Categories.java
+public List<Sub_Categories> getSubCategories() {
+    return subCategories;
+}
+
 }
