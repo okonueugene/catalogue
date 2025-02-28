@@ -40,8 +40,8 @@ Catalogue Project is a Spring Boot application that serves as a classified ads p
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/catalogue-project.git
-   cd catalogue-project
+   git clone https://github.com/okonueugene/catalogue.git
+   cd catalogue
    ```
 
 2. **Build and Run the Application:**
