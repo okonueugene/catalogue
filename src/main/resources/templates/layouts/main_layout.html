@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html
+  lang="en"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,6 +12,7 @@
     <meta name="description" content="Zawadi" />
     <meta name="keywords" content="Zawadi" />
     <meta name="author" content="Zawadi" />
+    <meta name="_csrf" th:content="${_csrf.token}" />
     <link
       rel="icon"
       href="../assets/images/favicon/favicon.ico"
@@ -169,7 +175,10 @@
                         placeholder="I'm searching for..."
                       />
                     </div>
-                    <div id="adsSuggestions" class="suggestions-dropdown text-center"></div>
+                    <div
+                      id="adsSuggestions"
+                      class="suggestions-dropdown text-center"
+                    ></div>
                   </div>
                 </div>
 
@@ -199,26 +208,91 @@
                         </div>
                       </div>
                     </li>
-
-                    <li class="right-side onhover-dropdown">
+                    <li
+                      class="right-side onhover-dropdown"
+                      sec:authorize="isAnonymous()"
+                    >
                       <div class="onhover-show-div">
                         <ul class="list-inline mb-0">
                           <li class="list-inline-item">
-                            <a href="login.html" class="login text-decoration-none">Login</a>
+                            <a
+                              href="javascript:void(0)"
+                              class="login text-decoration-none"
+                              data-bs-toggle="modal"
+                              data-bs-target="#logInModal"
+                              >Login</a
+                            >
                           </li>
                           <li class="list-inline-item">
                             <span class="text-muted">|</span>
                           </li>
                           <li class="list-inline-item">
-                            <a href="register.html" class="register text-decoration-none">Register</a>
+                            <a
+                              href="javascript:void(0)"
+                              class="register text-decoration-none"
+                              data-bs-toggle="modal"
+                              data-bs-target="#signUpModal"
+                              >Register</a
+                            >
                           </li>
                         </ul>
                       </div>
                     </li>
-                    <li class="right-side">
-                      <div class="text-center" style="margin-top: 10px; background-color: coral;">
-                        <button type="button" class="btn btn-warning btn-sm text-white">Sell on Zawadi</button>
+
+                    <li
+                      class="right-side d-flex align-items-center justify-content-end onhover-dropdown"
+                    >
+                      <div
+                        class="delivery-login-box d-flex align-items-center me-3"
+                      >
+                        <div class="delivery-icon me-2">
+                          <i data-feather="user"></i>
+                        </div>
+                        <div class="delivery-detail">
+                          <h6>Hello,</h6>
+                          <h5>
+                            <span
+                              sec:authorize="isAuthenticated()"
+                              sec:authentication="principal.username"
+                            ></span>
+                          </h5>
+                        </div>
                       </div>
+                      <div class="onhover-div onhover-div-login">
+                        <ul class="user-box-name">
+                            <li class="product-box-contain">
+                                <i></i>
+                                <a href="" >My Shop</a>
+
+                            </li>
+                            <li class="product-box-contain">
+                              <i></i>
+                              <a href="" >Perfomance</a>
+                            </li>
+                            <li class="product-box-contain">
+                              <i></i>
+                              <a href="">Settings</a>
+                            </li>
+                            <li class="product-box-contain">
+                              <i></i>
+                              <a href="">Logout</a>
+                            </li>
+                        </ul>
+                      </div>
+                     
+                    </li>
+                    <li class="right-side">
+                      <div
+                      class="text-center"
+                      style="margin-top: 10px; background-color: coral"
+                    >
+                      <a
+                        href="/ads/create"
+                        class="btn btn-warning btn-sm text-white"
+                      >
+                       <span>Post Ad</span> 
+                    </a>
+                    </div>
                     </li>
                   </ul>
                 </div>
@@ -367,47 +441,6 @@
                     </li>
                   </ul>
                 </div>
-              </div>
-            </div>
-
-            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-              <div class="footer-title">
-                <h4>Categories</h4>
-              </div>
-
-              <div class="footer-contain">
-                <ul>
-                  <li>
-                    <a href="shop-left-sidebar.html" class="text-content"
-                      >Vegetables & Fruit</a
-                    >
-                  </li>
-                  <li>
-                    <a href="shop-left-sidebar.html" class="text-content"
-                      >Beverages</a
-                    >
-                  </li>
-                  <li>
-                    <a href="shop-left-sidebar.html" class="text-content"
-                      >Meats & Seafood</a
-                    >
-                  </li>
-                  <li>
-                    <a href="shop-left-sidebar.html" class="text-content"
-                      >Frozen Foods</a
-                    >
-                  </li>
-                  <li>
-                    <a href="shop-left-sidebar.html" class="text-content"
-                      >Biscuits & Snacks</a
-                    >
-                  </li>
-                  <li>
-                    <a href="shop-left-sidebar.html" class="text-content"
-                      >Grocery & Staples</a
-                    >
-                  </li>
-                </ul>
               </div>
             </div>
 
@@ -600,6 +633,190 @@
         </div>
       </div>
     </div>
+    <!-- Location Modal End -->
+    <!-- Login Modal Start -->
+    <div
+      class="modal fade theme-modal login-modal"
+      id="logInModal"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="exampleModalLabel">
+              Login
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="login-register">
+              <div class="login-image">
+                <img
+                  src="../assets/images/login/login.png"
+                  class="blur-up lazyload"
+                  alt=""
+                />
+              </div>
+              <div class="login-form">
+                <form
+                  th:action="@{/login}"
+                  method="post"
+                  id="loginForm"
+                  novalidate
+                >
+                  <input
+                    type="hidden"
+                    name="${_csrf.parameterName}"
+                    value="${_csrf.token}"
+                  />
+                  <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      placeholder="Enter email"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Please provide a valid email address.
+                    </div>
+                  </div>
+                  <div class="form-group mb-3">
+                    <label for="password">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      name="password"
+                      placeholder="Enter password"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Please enter your password.
+                    </div>
+                  </div>
+                  <div class="d-grid">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-sm"
+                      id="login"
+                    >
+                      Login
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Login Modal End -->
+    <!-- Register Modal Start -->
+    <div
+      class="modal fade theme-modal register-modal"
+      id="signUpModal"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="login-form">
+              <form th:action="@{/signup}" method="post" id="registerForm">
+                <input
+                  type="hidden"
+                  name="${_csrf.parameterName}"
+                  value="${_csrf.token}"
+                />
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="email"
+                    placeholder="Email"
+                    name="email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Name"
+                    name="name"
+                    required
+                  />
+                </div>
+                <div class="form-group password-wrapper">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Password"
+                    name="password"
+                    required
+                  />
+                  <span class="password-toggle" id="togglePassword">
+                    <i class="fas fa-eye"></i>
+                  </span>
+                </div>
+                <div class="form-group password-wrapper">
+                  <label for="passwordConfirm">Confirm Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="passwordConfirm"
+                    placeholder="Confirm Password"
+                    name="passwordConfirm"
+                    required
+                  />
+                  <span class="password-toggle" id="toggleConfirmPassword">
+                    <i class="fas fa-eye" id="confirmEyeIcon"></i>
+                  </span>
+                  <div
+                    id="passwordError"
+                    class="text-danger small mt-1"
+                    style="display: none"
+                  >
+                    Passwords do not match.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phone"
+                    name="phone"
+                    placeholder="Phone (Digits only)"
+                  />
+                </div>
+                <div class="d-grid">
+                  <button type="submit" id="register" class="btn btn-solid">
+                    Register
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Register Modal End -->
 
     <!-- Bg overlay Start -->
     <div class="bg-overlay"></div>
@@ -652,231 +869,329 @@
     <!-- theme setting js -->
     <script src="../assets/js/theme-setting.js"></script>
 
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        document
-          .getElementById("adsSearchInput")
-          .addEventListener("keyup", function () {
-            let keyword = this.value.trim();
+      $(document).ready(function () {
+        $(".password-toggle").on("click", function () {
+          var input = $(this).closest(".password-wrapper").find("input");
+          var type = input.attr("type") === "password" ? "text" : "password";
+          input.attr("type", type);
+          $(this).find("i").toggleClass("fa-eye fa-eye-slash");
+        });
 
-            if (!keyword || keyword.length < 2) {
-              clearAdSuggestions();
-              return;
-            }
-
-            fetch(`/search-ads?keyword=${encodeURIComponent(keyword)}`)
-              .then((response) => response.json())
-              .then((data) => displayAdSuggestions(data))
-              .catch((error) => {
-                console.error("Error fetching ads suggestions:", error);
-                clearAdSuggestions();
-              });
-          });
-
-        function displayAdSuggestions(suggestions) {
-          let suggestionsContainer = document.getElementById("adsSuggestions");
-          suggestionsContainer.innerHTML = ""; // Clear previous suggestions
-
-          if (suggestions.length === 0) {
-            suggestionsContainer.innerHTML = "<p>No suggestions found.</p>";
-            return;
+        const createPw = document.querySelector("#password"),
+          confirmPw = document.querySelector("#passwordConfirm"),
+          pwShow = document.querySelector("#togglePassword"),
+          alertIcon = document.querySelector("#confirmEyeIcon"),
+          alertText = document.querySelector("#passwordError"),
+          submitBtn = document.querySelector("#register");
+        pwShow.addEventListener("click", () => {
+          if (createPw.type === "password" && confirmPw.type === "password") {
+            createPw.type = "text";
+            confirmPw.type = "text";
+            pwShow.classList.replace("fa-eye-slash", "fa-eye");
+          } else {
+            createPw.type = "password";
+            confirmPw.type = "password";
+            pwShow.classList.replace("fa-eye", "fa-eye-slash");
           }
-
-          suggestions.forEach((item) => {
-            let suggestionItem = document.createElement("div");
-            suggestionItem.classList.add("suggestion-item");
-            suggestionItem.innerHTML = `<span>${item.suggestion}</span> <small>(${item.adsCount} ads)</small>`;
-
-            // Optionally, add a click event to redirect or filter ads
-            suggestionItem.addEventListener("click", function () {
-              // For example, navigate to a search results page:
-              window.location.href = `/ads-results?keyword=${encodeURIComponent(
-                item.suggestion
-              )}`;
-            });
-
-            suggestionsContainer.appendChild(suggestionItem);
-          });
-        }
-
-        function clearAdSuggestions() {
-          let suggestionsContainer = document.getElementById("adsSuggestions");
-          suggestionsContainer.innerHTML = "";
-        }
+        });
+        createPw.addEventListener("input", () => {
+          let val = createPw.value.trim();
+          if (val.length >= 8) {
+            confirmPw.removeAttribute("disabled");
+            submitBtn.removeAttribute("disabled");
+            submitBtn.classList.add("active");
+          } else {
+            confirmPw.setAttribute("disabled", true);
+            submitBtn.setAttribute("disabled", true);
+            submitBtn.classList.remove("active");
+            confirmPw.value = "";
+            alertText.style.color = "#a6a6a6";
+            alertText.innerText = "Enter at least 8 characters";
+            alertIcon.style.display = "none";
+          }
+        });
+        submitBtn.addEventListener("click", () => {
+          if (createPw.value === confirmPw.value) {
+            alertText.innerText = "Password matched";
+            alertIcon.style.display = "none";
+            alertText.style.color = "#4070F4";
+          } else {
+            alertText.innerText = "Password didn't matched";
+            alertIcon.style.display = "block";
+            alertText.style.color = "#D93025";
+          }
+        });
       });
     </script>
     <script>
-      // On page load, render the default list
-      document.addEventListener("DOMContentLoaded", function () {
-        updateLocationListStatic(
-          defaultLocations,
-          defaultSublocationsMap,
-          defaultLocationAdsCount
+      (function () {
+        "use strict";
+
+        // Fetch the form we want to apply custom validation to
+        var form = document.getElementById("loginForm");
+
+        // When the form is submitted...
+        form.addEventListener(
+          "submit",
+          function (event) {
+            // If the form is invalid, prevent submission
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            // Add Bootstrap's validation class to trigger feedback display
+            form.classList.add("was-validated");
+          },
+          false
         );
+      })();
+    </script>
+    <script>
+      $("#loginForm input").on("input", function () {
+        // Remove the invalid-feedback if field becomes valid
+        if (this.checkValidity()) {
+          $(this).removeClass("is-invalid");
+        } else {
+          $(this).addClass("is-invalid");
+        }
+      });
+      //Additional
+    $('.toggle-password').click(function() {
+        const passwordInput = $('#password');
+        const icon = $(this).find('i');
+
+        if (passwordInput.attr('type') === 'password') {
+            passwordInput.attr('type', 'text');
+            icon.removeClass('ti-eye-off').addClass('ti-eye');
+        } else {
+            passwordInput.attr('type', 'password');
+            icon.removeClass('ti-eye').addClass('ti-eye-off');
+        }
+    });
+
+  
+  document
+    .getElementById("adsSearchInput")
+    .addEventListener("keyup", function () {
+      let keyword = this.value.trim();
+
+      if (!keyword || keyword.length < 2) {
+        clearAdSuggestions();
+        return;
+      }
+
+      fetch(`/search-ads?keyword=${encodeURIComponent(keyword)}`)
+        .then((response) => response.json())
+        .then((data) => displayAdSuggestions(data))
+        .catch((error) => {
+          console.error("Error fetching ads suggestions:", error);
+          clearAdSuggestions();
+        });
+    });
+
+  function displayAdSuggestions(suggestions) {
+    let suggestionsContainer = document.getElementById("adsSuggestions");
+    suggestionsContainer.innerHTML = ""; // Clear previous suggestions
+
+    if (suggestions.length === 0) {
+      suggestionsContainer.innerHTML = "<p>No suggestions found.</p>";
+      return;
+    }
+
+    suggestions.forEach((item) => {
+      let suggestionItem = document.createElement("div");
+      suggestionItem.classList.add("suggestion-item");
+      suggestionItem.innerHTML = `<span>${item.suggestion}</span> <small>(${item.adsCount} ads)</small>`;
+
+      // Optionally, add a click event to redirect or filter ads
+      suggestionItem.addEventListener("click", function () {
+        // For example, navigate to a search results page:
+        window.location.href = `/ads-results?keyword=${encodeURIComponent(
+          item.suggestion
+        )}`;
       });
 
-      // Function to update the list with static default locations (without sublocations)
-      function updateLocationListStatic(
-        locations,
-        sublocationsMap,
-        locationAdsCount
-      ) {
-        let locationList = document.getElementById("locationList");
-        locationList.innerHTML = ""; // Clear any previous content
-        if (locations.length === 0) {
-          showErrorMessage("No locations available.");
-          return;
+      suggestionsContainer.appendChild(suggestionItem);
+    });
+  }
+
+  function clearAdSuggestions() {
+    let suggestionsContainer = document.getElementById("adsSuggestions");
+    suggestionsContainer.innerHTML = "";
+  }
+
+
+
+// Function to update the list with static default locations (without sublocations)
+function updateLocationListStatic(
+  locations,
+  sublocationsMap,
+  locationAdsCount
+) {
+  let locationList = document.getElementById("locationList");
+  locationList.innerHTML = ""; // Clear any previous content
+  if (locations.length === 0) {
+    showErrorMessage("No locations available.");
+    return;
+  }
+  locations.forEach(function (item) {
+    let li = document.createElement("li");
+    li.setAttribute("data-location-id", item.id);
+    li.innerHTML = `<a href="javascript:void(0)">
+      <h6>${item.name} (${locationAdsCount[item.id] || 0} ads)</h6>
+    </a>`;
+    // (Optional) You can later add a click event to expand sublocations if desired.
+    locationList.appendChild(li);
+  });
+  clearErrorMessage();
+}
+
+// Listen for keyup on the search input for dynamic searching
+document
+  .getElementById("locationSearch")
+  .addEventListener("keyup", function () {
+    let keyword = this.value.trim();
+
+    // If the input is empty or less than 2 characters, show an error and reset to default list.
+    if (!keyword || keyword.length < 2) {
+      showErrorMessage("Please enter at least 2 characters to search.");
+      updateLocationListStatic(
+        defaultSublocationsMap,
+        defaultLocationAdsCount
+      );
+      return;
+    }
+
+    // Otherwise, perform the search via AJAX
+    fetch(`/search-locations?keyword=${encodeURIComponent(keyword)}`)
+      .then((response) => response.json())
+      .then((data) => updateLocationList(data))
+      .catch((error) => {
+        console.error("Error fetching locations:", error);
+        showErrorMessage("An error occurred while searching.");
+      });
+  });
+
+// Update the list based on search data, grouping locations with sublocations.
+function updateLocationList(data) {
+  let locationList = document.getElementById("locationList");
+  locationList.innerHTML = ""; // Clear previous results
+
+  // Group data by location
+  let groupedLocations = {};
+  data.forEach(function (item) {
+    if (item.type === "location") {
+      groupedLocations[item.id] = {
+        name: item.name,
+        ads: item.ads || 0,
+        subLocations: []
+      };
+    } else if (item.type === "subLocation") {
+      if (groupedLocations[item.parentId]) {
+        groupedLocations[item.parentId].subLocations.push({
+          id: item.id,
+          name: item.name,
+          ads: item.ads || 0
+        });
+      }
+    }
+  });
+
+  let locationIds = Object.keys(groupedLocations);
+  if (locationIds.length === 0) {
+    showErrorMessage("No matching locations found.");
+    return;
+  }
+
+  // Build list items for each grouped location
+  locationIds.forEach(function (locationId) {
+    let location = groupedLocations[locationId];
+    let li = document.createElement("li");
+    li.setAttribute("data-location-id", locationId);
+
+    li.innerHTML = `
+      <a href="javascript:void(0)">
+        <h6>${location.name} (${location.ads} ads)</h6>
+      </a>
+      <ul class="sub-location-list" id="subLocationList${locationId}" style="display: none;">
+        ${
+          location.subLocations.length > 0
+            ? location.subLocations
+                .map(function (sub) {
+                  return `<li data-sub-id="${sub.id}">
+                        <a href="javascript:void(0)">
+                          <h6>${sub.name} (${sub.ads} ads)</h6>
+                        </a>
+                      </li>`;
+                })
+                .join("")
+            : `<li>No Sublocations Found</li>`
         }
-        locations.forEach(function (item) {
-          let li = document.createElement("li");
-          li.setAttribute("data-location-id", item.id);
-          li.innerHTML = `<a href="javascript:void(0)">
-            <h6>${item.name} (${locationAdsCount[item.id] || 0} ads)</h6>
-          </a>`;
-          // (Optional) You can later add a click event to expand sublocations if desired.
-          locationList.appendChild(li);
-        });
-        clearErrorMessage();
+      </ul>
+    `;
+
+    // Toggle sublocation display on click
+    li.querySelector("a").addEventListener("click", function () {
+      let subList = document.getElementById(
+        "subLocationList" + locationId
+      );
+      if (subList) {
+        subList.style.display =
+          subList.style.display === "none" ? "block" : "none";
       }
+    });
 
-      // Listen for keyup on the search input for dynamic searching
-      document
-        .getElementById("locationSearch")
-        .addEventListener("keyup", function () {
-          let keyword = this.value.trim();
+    locationList.appendChild(li);
+  });
 
-          // If the input is empty or less than 2 characters, show an error and reset to default list.
-          if (!keyword || keyword.length < 2) {
-            showErrorMessage("Please enter at least 2 characters to search.");
-            updateLocationListStatic(
-              defaultLocations,
-              defaultSublocationsMap,
-              defaultLocationAdsCount
-            );
-            return;
-          }
+  // If exactly one location is present, automatically expand its sublocations.
+  if (locationIds.length === 1) {
+    let onlyLocationId = locationIds[0];
+    let subList = document.getElementById(
+      "subLocationList" + onlyLocationId
+    );
+    if (subList) {
+      subList.style.display = "block";
+    }
+  }
 
-          // Otherwise, perform the search via AJAX
-          fetch(`/search-locations?keyword=${encodeURIComponent(keyword)}`)
-            .then((response) => response.json())
-            .then((data) => updateLocationList(data))
-            .catch((error) => {
-              console.error("Error fetching locations:", error);
-              showErrorMessage("An error occurred while searching.");
-            });
-        });
+  clearErrorMessage();
+}
 
-      // Update the list based on search data, grouping locations with sublocations.
-      function updateLocationList(data) {
-        let locationList = document.getElementById("locationList");
-        locationList.innerHTML = ""; // Clear previous results
+// Show an error message inside the modal
+function showErrorMessage(message) {
+  let errorBox = document.getElementById("selectLocationMessage");
+  errorBox.innerHTML = `<h6>${message}</h6>`;
+  document.getElementById("locationList").innerHTML = "";
+}
 
-        // Group data by location
-        let groupedLocations = {};
-        data.forEach(function (item) {
-          if (item.type === "location") {
-            groupedLocations[item.id] = {
-              name: item.name,
-              ads: item.ads || 0,
-              subLocations: []
-            };
-          } else if (item.type === "subLocation") {
-            if (groupedLocations[item.parentId]) {
-              groupedLocations[item.parentId].subLocations.push({
-                id: item.id,
-                name: item.name,
-                ads: item.ads || 0
-              });
-            }
-          }
-        });
+// Clear the error message (reset to default text)
+function clearErrorMessage() {
+  let errorBox = document.getElementById("selectLocationMessage");
+  errorBox.innerHTML = `<h6>Select a Location</h6>`;
+}
 
-        let locationIds = Object.keys(groupedLocations);
-        if (locationIds.length === 0) {
-          showErrorMessage("No matching locations found.");
-          return;
-        }
+// When the search input is cleared, reset to the default locations.
+document
+  .getElementById("locationSearch")
+  .addEventListener("input", function () {
+    if (!this.value.trim()) {
+      updateLocationListStatic(
+        defaultSublocationsMap,
+        defaultLocationAdsCount
+      );
+    }
+  });
 
-        // Build list items for each grouped location
-        locationIds.forEach(function (locationId) {
-          let location = groupedLocations[locationId];
-          let li = document.createElement("li");
-          li.setAttribute("data-location-id", locationId);
-
-          li.innerHTML = `
-            <a href="javascript:void(0)">
-              <h6>${location.name} (${location.ads} ads)</h6>
-            </a>
-            <ul class="sub-location-list" id="subLocationList${locationId}" style="display: none;">
-              ${
-                location.subLocations.length > 0
-                  ? location.subLocations
-                      .map(function (sub) {
-                        return `<li data-sub-id="${sub.id}">
-                              <a href="javascript:void(0)">
-                                <h6>${sub.name} (${sub.ads} ads)</h6>
-                              </a>
-                            </li>`;
-                      })
-                      .join("")
-                  : `<li>No Sublocations Found</li>`
-              }
-            </ul>
-          `;
-
-          // Toggle sublocation display on click
-          li.querySelector("a").addEventListener("click", function () {
-            let subList = document.getElementById(
-              "subLocationList" + locationId
-            );
-            if (subList) {
-              subList.style.display =
-                subList.style.display === "none" ? "block" : "none";
-            }
-          });
-
-          locationList.appendChild(li);
-        });
-
-        // If exactly one location is present, automatically expand its sublocations.
-        if (locationIds.length === 1) {
-          let onlyLocationId = locationIds[0];
-          let subList = document.getElementById(
-            "subLocationList" + onlyLocationId
-          );
-          if (subList) {
-            subList.style.display = "block";
-          }
-        }
-
-        clearErrorMessage();
-      }
-
-      // Show an error message inside the modal
-      function showErrorMessage(message) {
-        let errorBox = document.getElementById("selectLocationMessage");
-        errorBox.innerHTML = `<h6>${message}</h6>`;
-        document.getElementById("locationList").innerHTML = "";
-      }
-
-      // Clear the error message (reset to default text)
-      function clearErrorMessage() {
-        let errorBox = document.getElementById("selectLocationMessage");
-        errorBox.innerHTML = `<h6>Select a Location</h6>`;
-      }
-
-      // When the search input is cleared, reset to the default locations.
-      document
-        .getElementById("locationSearch")
-        .addEventListener("input", function () {
-          if (!this.value.trim()) {
-            updateLocationListStatic(
-              defaultLocations,
-              defaultSublocationsMap,
-              defaultLocationAdsCount
-            );
-          }
-        });
     </script>
   </body>
 </html>

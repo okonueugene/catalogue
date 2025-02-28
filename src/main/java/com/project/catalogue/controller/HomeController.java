@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.catalogue.model.Locations;
+import com.project.catalogue.model.Users;
 import com.project.catalogue.repository.CategoriesRepository;
 import com.project.catalogue.repository.LocationsRepository;
+import com.project.catalogue.repository.UserRepository;
 import com.project.catalogue.repository.AdsRepository;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 @Controller
 public class HomeController {
@@ -29,13 +34,19 @@ public class HomeController {
     @Autowired
     private AdsRepository adsRepository;
 
+    @Autowired
+    private UserRepository userRepo;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @GetMapping("/")
     public String index(Model model) {// Fetch all locations sorted alphabetically by name
         List<Locations> locations = locationsRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
 
         var defaultLocations = locationsRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
         var categories = categoriesRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
-        var ads = adsRepository.findAll();
+        var ads = adsRepository.findAllWithImages();
 
         Map<Long, List<Object[]>> sublocationsMap = new HashMap<>();
         Map<Long, Long> locationAdsCount = new HashMap<>();
@@ -117,5 +128,35 @@ public class HomeController {
 
         return suggestions;
     }
+
+    @GetMapping("/error")
+    public String error() {
+        return "error";
+    }
+        
+    @PostMapping("/signup")
+    public String signup(@RequestParam Map<String, String> userData) {
+        String email = userData.get("email");
+        String password = userData.get("password");
+        String name = userData.get("name");
+        String phone = userData.get("phone"); 
+        Boolean phoneVerified = false;
+        Boolean emailVerified = false;
+    
+        Users user = new Users();
+        user.setEmail(email);
+        user.setPassword(passwordEncoder.encode(password));
+        user.setName(name);
+        user.setPhone(phone);
+        user.setPhoneVerified(phoneVerified);
+        user.setEmailVerified(emailVerified);
+        userRepo.save(user);
+    
+        return "redirect:/";
+    }
+    
+               
+     
+    
 
 }

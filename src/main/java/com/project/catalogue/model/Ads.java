@@ -23,6 +23,10 @@ public class Ads {
     @JoinColumn(name = "category_id", nullable = false)
     private Categories category;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sub_category_id", nullable = false)
+    private Sub_Categories subCategory;
+
     @Column(name = "title", nullable = false)
     private String title;
 
@@ -115,6 +119,14 @@ public class Ads {
         this.images = images;
     }
 
+    public Sub_Categories getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(Sub_Categories subCategory) {
+        this.subCategory = subCategory;
+    }
+    
     public AdsStatus getStatus() {
         return status;
     }

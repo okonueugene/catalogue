@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main_layout.html}"
+      xmlns:th="http://www.thymeleaf.org">
+<section layout:fragment="content">
+    <section class="wow fadeInUp">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="slider-3-product product-wrapper">
+                        <div th:each="image : ${ad.images}">
+                            <div class="product-slider-image">
+                                <img th:src="${image.imageUrl}" alt="Ad Image"
+                                     class="img-fluid blur-up lazyload">
+                            </div>
+                        </div>
+                        <div th:if="${#lists.isEmpty(ad.images)}">
+                            <div class="product-slider-image">
+                                <img src="../assets/images/product/category/1.jpg" alt="Placeholder Image"
+                                     class="img-fluid blur-up lazyload">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="product-section">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-xxl-9 col-xl-8 col-lg-7 wow fadeInUp">
+                    <div class="row g-4">
+                        <div class="col-12 wow fadeInUp">
+                            <div class="right-box-contain">
+                                <h2 class="name" th:text="${ad.title}"></h2>
+                                <div class="price-rating">
+                                    <h3 class="theme-color price" th:text="'Ksh ' + ${#numbers.formatDecimal(ad.price, 0, 2, 'POINT')}"></h3>                                </div>
+                                <div class="product-contain">
+                                    <h4>Description</h4>
+                                    <p th:text="${ad.description}"></p>
+                                </div>
+
+                                <div class="product-contain">
+                                    <p>
+                                        <strong>Posted by:</strong> <span th:text="${ad.user.name}"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Contact:</strong> <span th:text="${ad.user.phone}"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="product-list-section section-b-space">
+        <div class="container-fluid-lg">
+            <div class="title">
+                <h2>Related Ads</h2>
+                <span class="title-leaf">
+                    <svg class="icon-width">
+                        <use xlink:href="../assets/svg/leaf.svg#leaf"></use>
+                    </svg>
+                </span>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="slider-6_1 product-wrapper">
+                        <div th:each="ad : ${relatedAds}">
+                            <div class="product-box-3 wow fadeInUp">
+                                <div class="product-header">
+                                    <div class="product-image">
+                                        <a th:href="@{/ads/show(id=${ad.id})}">
+
+                                        <img th:if="${not #lists.isEmpty(ad.images)}"
+                         th:src="${ad.images[0].imageUrl}"
+                         class="img-fluid blur-up lazyload" alt="Ad Image">
+                    <img th:unless="${not #lists.isEmpty(ad.images)}"
+                         src="../assets/images/default-placeholder.png"
+                         class="img-fluid blur-up lazyload" alt="No Image">
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="product-footer">
+                                    <div class="product-detail">
+                                        <span class="span-name" th:text="${ad.category.name}"></span>
+<a th:href="@{/ads/show(id=${ad.id})}">
+                                            <h5 class="name" th:text="${ad.title}"></h5>
+                                        </a>
+                                        <h5 class="price"><span class="theme-color" th:text="'Ksh ' + ${#numbers.formatDecimal(ad.price, 0, 'COMMA', 2, 'POINT')}"></span>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+</body>
+
+</html>

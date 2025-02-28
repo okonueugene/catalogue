@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Zawadi" />
+    <meta name="keywords" content="Zawadi" />
+    <meta name="author" content="Zawadi" />
+    <meta name="_csrf" th:content="${_csrf.token}" />
+    <link
+      rel="icon"
+      href="../assets/images/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Zawadi</title>
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    />
+
+    <!-- bootstrap css -->
+    <link
+      id="rtl-link"
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/css/vendors/bootstrap.css"
+    />
+
+    <!-- wow css -->
+    <link rel="stylesheet" href="../assets/css/animate.min.css" />
+
+    <!-- Iconly css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/css/bulk-style.css"
+    />
+
+    <!-- Template css -->
+    <link
+      id="color-link"
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/css/style.css"
+    />
+  </head>
+
+  <body class="theme-color-1">
+    <!-- Loader Start -->
+    <div class="fullpage-loader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <!-- Loader End -->
+
+    <!-- Header Start -->
+    <header class="pb-md-4 pb-0">
+      <div class="header-top bg-dark">
+        <div class="container-fluid-lg">
+          <div class="row">
+            <div class="col-xxl-3 d-xxl-block d-none">
+              <div class="top-left-header">
+                <i class="iconly-Location icli text-white"></i>
+                <span class="text-white"
+                  >1418 Riverwood Drive, CA 96052, US</span
+                >
+              </div>
+            </div>
+
+            <div class="col-xxl-6 col-lg-9 d-lg-block d-none">
+              <div class="header-offer">
+                <div class="notification-slider">
+                  <div>
+                    <div class="timer-notification">
+                      <h6>
+                        <strong class="me-1">Welcome to Zawadi!</strong>Wrap new
+                        offers/gift every single day on Weekends.<strong
+                          class="ms-1"
+                          >New Coupon Code: Fast024
+                        </strong>
+                      </h6>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="timer-notification">
+                      <h6>
+                        Something you love is now on sale!
+                        <a href="shop-left-sidebar.html" class="text-white"
+                          >Buy Now !</a
+                        >
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-nav top-header sticky-header">
+        <div class="container-fluid-lg">
+          <div class="row">
+            <div class="col-12">
+              <div class="navbar-top">
+                <button
+                  class="navbar-toggler d-xl-none d-inline navbar-menu-button"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#primaryMenu"
+                >
+                  <span class="navbar-toggler-icon">
+                    <i class="fa-solid fa-bars"></i>
+                  </span>
+                </button>
+                <a href="index.html" class="web-logo nav-logo">
+                  <img
+                    src="../assets/images/logo/zawadi.jpeg"
+                    class="img-fluid blur-up lazyload"
+                    alt=""
+                    style="width: 100%; height: 70px"
+                  />
+                </a>
+
+                <div class="rightside-box">
+                  <ul class="right-side-menu">
+
+                    <li
+                      class="right-side onhover-dropdown"
+                      sec:authorize="isAnonymous()"
+                    >
+                      <div class="onhover-show-div">
+                
+                      </div>
+                    </li>
+
+                    <li
+                      class="right-side d-flex align-items-center justify-content-end onhover-dropdown"
+                    >
+                      <div
+                        class="delivery-login-box d-flex align-items-center me-3"
+                      >
+                        <div class="delivery-icon me-2">
+                          <i data-feather="user"></i>
+                        </div>
+                        <div class="delivery-detail">
+                          <h6>Hello,</h6>
+                          <h5>
+                            <span
+                              sec:authorize="isAuthenticated()"
+                              sec:authentication="principal.username"
+                            ></span>
+                          </h5>
+                        </div>
+                      </div>
+                      <div class="onhover-div onhover-div-login">
+                        <ul class="user-box-name">
+                            <li class="product-box-contain">
+                                <i></i>
+                                <a href="" >My Shop</a>
+
+                            </li>
+                            <li class="product-box-contain">
+                              <i></i>
+                              <a href="" >Perfomance</a>
+                            </li>
+                            <li class="product-box-contain">
+                              <i></i>
+                              <a href="">Settings</a>
+                            </li>
+                            <li class="product-box-contain">
+                              <i></i>
+                              <a href="">Logout</a>
+                            </li>
+                        </ul>
+                      </div>
+                     
+                    </li>
+                    <li class="right-side">
+                      <div
+                      class="text-center"
+                      style="margin-top: 10px; background-color: coral"
+                    >
+                      <a
+                        href="/ads/create"
+                        class="btn btn-warning btn-sm text-white"
+                      >
+                       <span>Post Ad</span> 
+                    </a>
+                    </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </header>
+
+    <!-- Product Section Start -->
+    <section layout:fragment="content"></section>
+    <!-- Product Section End -->
+
+    <!-- Footer Section Start -->
+    <footer class="section-t-space">
+      <div class="container-fluid-lg">
+        <div class="main-footer section-b-space section-t-space">
+          <div class="row g-md-4 g-3">
+            <div class="col-xl-3 col-lg-4 col-sm-6">
+              <div class="footer-logo">
+                <div class="theme-logo">
+                  <a href="index.html">
+                    <img
+                      src="../assets/images/logo/zawadi.jpeg"
+                      class="blur-up lazyload"
+                      alt=""
+                      style="width: 100%; height: 70px"
+                    />
+                  </a>
+                </div>
+
+                <div class="footer-logo-contain">
+                  <p>
+                    In publishing and graphic design, Lorem ipsum is a
+                    placeholder text commonly used to demonstrate the visual
+                    form.
+                  </p>
+
+                  <ul class="address">
+                    <li>
+                      <i data-feather="home"></i>
+                      <a href="javascript:void(0)"
+                        >1418 Riverwood Drive, CA 96052, US</a
+                      >
+                    </li>
+                    <li>
+                      <i data-feather="mail"></i>
+                      <a href="javascript:void(0)">support@Zawadi.com</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl col-lg-2 col-sm-3">
+              <div class="footer-title">
+                <h4>Useful Links</h4>
+              </div>
+
+              <div class="footer-contain">
+                <ul>
+                  <li>
+                    <a href="index.html" class="text-content">Home</a>
+                  </li>
+                  <li>
+                    <a href="shop-left-sidebar.html" class="text-content"
+                      >Shop</a
+                    >
+                  </li>
+                  <li>
+                    <a href="about-us.html" class="text-content">About Us</a>
+                  </li>
+                  <li>
+                    <a href="blog-list.html" class="text-content">Blog</a>
+                  </li>
+                  <li>
+                    <a href="contact-us.html" class="text-content"
+                      >Contact Us</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-xl-2 col-sm-3">
+              <div class="footer-title">
+                <h4>Help Center</h4>
+              </div>
+
+              <div class="footer-contain">
+                <ul>
+                  <li>
+                    <a href="order-success.html" class="text-content"
+                      >Your Order</a
+                    >
+                  </li>
+                  <li>
+                    <a href="user-dashboard.html" class="text-content"
+                      >Your Account</a
+                    >
+                  </li>
+                  <li>
+                    <a href="order-tracking.html" class="text-content"
+                      >Track Order</a
+                    >
+                  </li>
+                  <li>
+                    <a href="wishlist.html" class="text-content"
+                      >Your Wishlist</a
+                    >
+                  </li>
+                  <li>
+                    <a href="search.html" class="text-content">Search</a>
+                  </li>
+                  <li>
+                    <a href="faq.html" class="text-content">FAQ</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-sm-6">
+              <div class="footer-title">
+                <h4>Contact Us</h4>
+              </div>
+
+              <div class="footer-contact">
+                <ul>
+                  <li>
+                    <div class="footer-number">
+                      <i data-feather="phone"></i>
+                      <div class="contact-number">
+                        <h6 class="text-content">Hotline 24/7 :</h6>
+                        <h5>+91 888 104 2340</h5>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="footer-number">
+                      <i data-feather="mail"></i>
+                      <div class="contact-number">
+                        <h6 class="text-content">Email Address :</h6>
+                        <h5>Zawadi@hotmail.com</h5>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="social-app mb-0">
+                    <h5 class="mb-2 text-content">Download App :</h5>
+                    <ul>
+                      <li class="mb-0">
+                        <a
+                          href="https://play.google.com/store/apps"
+                          target="_blank"
+                        >
+                          <img
+                            src="../assets/images/playstore.svg"
+                            class="blur-up lazyload"
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                      <li class="mb-0">
+                        <a
+                          href="https://www.apple.com/in/app-store/"
+                          target="_blank"
+                        >
+                          <img
+                            src="../assets/images/appstore.svg"
+                            class="blur-up lazyload"
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sub-footer section-small-space">
+          <div class="reserve">
+            <h6 class="text-content">
+              ©<span
+                th:text="${#dates.format(#dates.createNow(), 'yyyy')}"
+              ></span>
+              Zawadi All rights reserved
+            </h6>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Bg overlay Start -->
+    <div class="bg-overlay"></div>
+    <!-- Bg overlay End -->
+
+    <!-- latest jquery-->
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+
+    <!-- jquery ui-->
+    <script src="../assets/js/jquery-ui.min.js"></script>
+
+    <!-- sidebar open js -->
+    <script src="../assets/js/filter-sidebar.js"></script>
+
+    <!-- Bootstrap js-->
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/bootstrap/popper.min.js"></script>
+
+    <!-- feather icon js-->
+    <script src="../assets/js/feather/feather.min.js"></script>
+    <script src="../assets/js/feather/feather-icon.js"></script>
+
+    <!-- Lazyload Js -->
+    <script src="../assets/js/lazysizes.min.js"></script>
+
+    <!-- Slick js-->
+    <script src="../assets/js/slick/slick.js"></script>
+    <script src="../assets/js/slick/custom_slick.js"></script>
+    <script src="../assets/js/bootstrap/bootstrap-notify.min.js"></script>
+
+    <!-- Auto Height Js -->
+    <script src="../assets/js/auto-height.js"></script>
+
+    <!-- Fly Cart Js -->
+    <script src="../assets/js/fly-cart.js"></script>
+
+    <!-- Quantity js -->
+    <script src="../assets/js/quantity-2.js"></script>
+
+    <!-- WOW js -->
+    <script src="../assets/js/wow.min.js"></script>
+    <script src="../assets/js/custom-wow.js"></script>
+
+    <!-- script js -->
+    <script src="../assets/js/script.js"></script>
+
+    <script>
+      console.log("hello");
+      $(document).ready(function () {
+          $("#category").change(function () {
+              var categoryId = $(this).val();
+              console.log(categoryId);
+              var subCategorySelect = $("#subCategory");
+      
+              subCategorySelect.html("<option value=''>Select Subcategory</option>");
+      
+              if (categoryId) {
+                  $.get("/ads/subcategories", { categoryId: categoryId }, function (data) {
+                    console.log(data);
+                      $.each(data, function (index, sub) {
+                          subCategorySelect.append($("<option></option>").attr("value", sub.id).text(sub.name));
+                      });
+                  });
+              }
+          });
+      
+          $("#locale").change(function () {
+              var locationId = $(this).val();
+              console.log(locationId);
+              var subLocationSelect = $("#subLocation");
+      
+              subLocationSelect.html("<option value=''>Select Sublocation</option>");
+      
+              if (locationId) {
+                  $.get("/ads/sublocations", { locationId: locationId }, function (data) {
+                    console.log(data);
+                      $.each(data, function (index, sub) {
+                          subLocationSelect.append($("<option></option>").attr("value", sub.id).text(sub.name));
+                      });
+                  });
+              }
+          });
+      });
+      </script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+  </body>
+</html>

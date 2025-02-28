@@ -15,6 +15,21 @@ public interface AdsRepository extends JpaRepository<Ads, Long> {
        "   OR LOWER(a.description) LIKE LOWER(CONCAT('%', :keyword, '%')) " +
        "GROUP BY c.id, c.name")
 List<Object[]> searchAdsByKeywordGroupByCategory(@Param("keyword") String keyword);
+@Query("SELECT a FROM Ads a LEFT JOIN FETCH a.images")
+List<Ads> findAllWithImages();
+
+//find by current user_id
+@Query("SELECT a FROM Ads a WHERE a.user.id = :userId")
+List<Ads> findByUserId(@Param("userId") Long userId);
+
+//related ads
+@Query("SELECT a FROM Ads a WHERE a.category.id = :categoryId " +
+       "AND a.subCategory.id = :subCategoryId " +
+       "AND a.id <> :adId")
+List<Ads> findRelatedAds(@Param("categoryId") Long categoryId,
+                         @Param("subCategoryId") Long subCategoryId,
+                         @Param("adId") Long adId);
+
 
 }
 

@@ -1,51 +1,50 @@
 <!DOCTYPE html>
-    <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{layouts/main_layout.html}"
-    >
-    <section layout:fragment="content">
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main_layout.html}">
+<section layout:fragment="content">
     <div class="container-fluid-lg mx-auto mb-xxl-5">
         <div class="row g-3 justify-content-center">
-             <div class="col-xxl-9 col-xl-8">
-                    <div class="title title-flex">
-                        <div>
-                            <h2>Top Save Today</h2>
-                            <span class="title-leaf">
-                                <svg class="icon-width">
-                                    <use xlink:href="../assets/svg/leaf.svg#cake"></use>
-                                </svg>
-                            </span>
-                        </div>
+            <div class="col-xxl-9 col-xl-8">
+                <div class="title title-flex">
+                    <div>
+                        <h2>Top Save Today</h2>
+                        <span class="title-leaf">
+                            <svg class="icon-width">
+                                <use xlink:href="../assets/svg/leaf.svg#cake"></use>
+                            </svg>
+                        </span>
                     </div>
+                </div>
 
-                    <div class="row g-3">
-                        <div class="col-lg-3 col-md-4 col-sm-6" th:each="ad : ${ads}">
-                            <div class="product-box product-box-bg wow fadeInUp">
-                                <div class="product-image">
-                                    <a href="product-left-thumbnail.html">
-                                        <img src="../assets/images/cake/product/1.png"
-                                            class="img-fluid blur-up lazyload" alt="">
-                                    </a>
-                                </div>
-                                <div class="product-detail">
-                                    <a href="product-left-thumbnail.html">
-                                        <h6 class="name" th:text="${ad.title}">
-                                        </h6>
-                                    </a>
-                                    <p class="content" th:text="${ad.description}"></p>
-                                    <h5 class="sold text-content">
-                                        <span class="theme-color price">
-                                            <span th:text="${ad.price}"></span>
-                                        </span>
-                                    </h5>
-                                </div>
+                <div class="row g-3">
+                    <div class="col-lg-3 col-md-4 col-sm-6" th:each="ad : ${ads}">
+                        <div class="product-box product-box-bg wow fadeInUp">
+                            <div class="product-image">
+                                <a th:href="@{/ads/show(id=${ad.id})}">
+                                 <img th:if="${not #lists.isEmpty(ad.images)}" th:src="${ad.images[0].imageUrl}"
+                                        class="img-fluid blur-up lazyload" alt="Ad Image">
+                                    <img th:unless="${not #lists.isEmpty(ad.images)}" src="placeholder.jpg"
+                                        class="img-fluid blur-up lazyload" alt="Placeholder Image">
+                                </a>
+                            </div>
+                            <div class="product-detail">
+                                <a th:href="@{/ads/show(id=${ad.id})}">
+                                    <h6 class="name" th:text="${ad.title}"></h6>
+                                </a>
+                                <p class="content" th:text="${ad.description}"></p>
+                                <h5 class="sold text-content">
+                                    <span class="theme-color price">
+                                        <h3 class="theme-color price" th:text="'Ksh ' + ${#numbers.formatDecimal(ad.price, 0, 'COMMA', 2, 'POINT')}"></h3>                                       
+                                    </span>
+                                </h5>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Product Section End -->
+    </div>
+</section>
+<!-- Product Section End -->
 </body>
 
 </html>

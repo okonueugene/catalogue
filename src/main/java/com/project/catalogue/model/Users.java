@@ -10,19 +10,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "users")
 public class Users {
-//     CREATE TABLE users (
-//     id BIGINT PRIMARY KEY AUTO_INCREMENT,
-//     name VARCHAR(255) NOT NULL,
-//     email VARCHAR(255) UNIQUE NOT NULL,
-//     phone VARCHAR(20) UNIQUE,
-//       profile_picture_url TEXT,
-//     password_hash VARCHAR(255) NOT NULL,
-//     email_verified BOOLEAN DEFAULT FALSE,
-//     phone_verified BOOLEAN DEFAULT FALSE,
-//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-//     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-// );
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,17 +28,17 @@ public class Users {
     @Column(name = "store_address")
     private String storeAddress;
 
-    @Column(name = "password_hash")
-    private String passwordHash;
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "profile_picture_url")
     private String profilePictureUrl;
 
     @Column(name = "email_verified")
-    private boolean emailVerified;
+    private Boolean emailVerified;
 
     @Column(name = "phone_verified")
-    private boolean phoneVerified;
+    private Boolean phoneVerified;
 
      @Column(name = "created_at")
     @CreationTimestamp
@@ -101,12 +88,12 @@ public class Users {
         this.storeAddress = storeAddress;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getPassword () {
+        return password;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getProfilePictureUrl() {
