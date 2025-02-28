@@ -42,3 +42,32 @@ Catalogue Project is a Spring Boot application that serves as a classified ads p
    ```bash
    git clone https://github.com/yourusername/catalogue-project.git
    cd catalogue-project
+   ```
+
+2. **Build and Run the Application:**
+   ```bash
+   ./gradlew bootRun
+   ```      
+
+3. **Access the Application:**
+   Navigate to http://localhost:8080 in your web browser to access the catalogue project.
+
+## Contributing
+
+1. **Fork the Repository:**
+   Fork this repository to your own GitHub account.
+
+2. **Create a New Branch:**
+   Create a new branch to work on your changes.
+
+3. **Make Your Changes:**
+   Make your changes and commit them to your new branch.
+
+4. **Submit a Pull Request:**
+   Submit a pull request to the original repository.
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+
